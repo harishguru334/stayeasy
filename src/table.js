@@ -1,5 +1,3 @@
-import { Tab } from "bootstrap"
-import Table from "./Components/Dineinn/Table"
 
 const TableData = [
     {

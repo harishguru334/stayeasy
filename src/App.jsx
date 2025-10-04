@@ -7,7 +7,7 @@ import Baar from './Components/Wineinn/Baar'
 import GardenTable from './Components/Garden/GardenTable'
 import Partyinn from './Components/Partymenu/PartyInn'
 import Laundry from './Components/Laundryinn/Laundryinn'
-import Room from './Components/CheckInn/room'
+// import Room from './Components/CheckInn/room'
 import CheckIn from './Components/CheckInn/checkinn'
 import Login from './Components/Homepage/Loginn'
 

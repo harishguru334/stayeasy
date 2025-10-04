@@ -1,4 +1,3 @@
-import { Route } from "react-router-dom"
 import Image1 from "./Image/bg-1.png"
 import Image2 from './Image/bg-2.png'
 import Image3 from './Image/bg-3.png'

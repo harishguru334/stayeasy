@@ -11,14 +11,15 @@ import CheckIn from './Components/CheckInn/checkinn'
 import Login from './Components/Homepage/Loginn'
 import Room from './Components/CheckInn/room'
 
+
 function App() {
     return (<>
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Homepage />} />
                 <Route path='/LogIn' element={<Login />} />
-                <Route path='/Checkinn' element={<Room />} />
                 <Route path='/Dineinn' element={<Table />} />
+                <Route path='/Room' element={<Room />} />
                 <Route path='/Foodinn' element={<Food />} />
                 <Route path='/Baarinn' element={<Baar />} />
                 <Route path='/Gardeninn' element={<GardenTable />} />

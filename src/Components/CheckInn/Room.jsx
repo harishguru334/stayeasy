@@ -10,7 +10,7 @@ export default function Room() {
     return (
         <div className="flex">
             <Sidebaar2 />
-            <div className="p-6 w-300 bg-yellow-100 min-h-screen">
+            <div className="p-6 w-300 bg-slate-200 min-h-screen">
 
                 <h2 className="text-2xl font-bold mb-4 text-center ">Room View </h2>
 

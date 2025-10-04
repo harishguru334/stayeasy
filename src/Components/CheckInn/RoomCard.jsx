@@ -9,7 +9,7 @@ export default function RoomCard({ room, onClick }) {
    
       <div
         className={`rounded-xl  p-1  text-white shadow-md flex flex-col justify-center text-center cursor-pointer
-        ${isBooked ? "bg-blue-500" : isAvailable ? "bg-green-500 hover:bg-green-600" : "bg-black"} 
+        ${isBooked ? "bg-blue-500 hover:bg-blue-700 "  : isAvailable ? "bg-green-400 hover:bg-green-700" : "bg-black"} 
       `}
         style={{ width: "150px", height: "75px" }} // 👈 Fixed size
         onClick={() => onClick(room)} // ✅ Dono clickable

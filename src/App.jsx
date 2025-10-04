@@ -18,7 +18,7 @@ function App() {
                 {/* <img src="" alt="" srcset="" /> */}
                 <Route path='/' element={<Homepage />} />
                 <Route path='/LogIn' element={<Login />} />
-                <Route path='/Checkinn' element={<Room />} />
+                {/* <Route path='/Checkinn' element={<Room />} /> */}
                 <Route path='/Dineinn' element={<Table/>} />
                 <Route path='/Foodinn' element={<Food/>} />
                 <Route path='/Baarinn' element={<Baar/>} /> 

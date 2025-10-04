@@ -9,7 +9,7 @@ import Partyinn from './Components/Partymenu/PartyInn'
 import Laundry from './Components/Laundryinn/Laundryinn'
 import CheckIn from './Components/CheckInn/checkinn'
 import Login from './Components/Homepage/Loginn'
-import Room_view from './Components/CheckInn/room'
+import Room_view from './Components/CheckInn/Room'
 
 
 function App() {

@@ -4,7 +4,7 @@ import RoomCard from "./RoomCard";
 import CheckInForm from "./checkinn";
 import Sidebaar2 from "./Sidebaar2";
 
-export default function Room() {
+export default function Room_view() {
     const [selectedRoom, setSelectedRoom] = useState(null);
 
     return (

@@ -9,7 +9,7 @@ import Partyinn from './Components/Partymenu/PartyInn'
 import Laundry from './Components/Laundryinn/Laundryinn'
 import CheckIn from './Components/CheckInn/checkinn'
 import Login from './Components/Homepage/Loginn'
-import Room from './Components/CheckInn/room'
+import Room_view from './Components/CheckInn/room'
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
                 <Route path='/' element={<Homepage />} />
                 <Route path='/LogIn' element={<Login />} />
                 <Route path='/Dineinn' element={<Table />} />
-                <Route path='/Room' element={<Room />} />
+                <Route path='/Room' element={<Room_view />} />
                 <Route path='/Foodinn' element={<Food />} />
                 <Route path='/Baarinn' element={<Baar />} />
                 <Route path='/Gardeninn' element={<GardenTable />} />

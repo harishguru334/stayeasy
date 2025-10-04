@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+#c-inn{
+    background-image: url(./Image/bg-1.png);
+    background-position: top;
+    border-radius: 10px;
+}
+#f-inn{
+    background-image: url(./Image/bg-2.png);
+    background-position: top;
+    border-radius: 10px;
+}
+#d-inn{
+    background-image: url(./Image/bg-3.png);
+    background-position: top;
+    border-radius: 10px;
+}
+#w-inn{
+    background-image: url(./Image/bg-4.png);
+    background-position: top;
+    border-radius: 10px;
+}
+#s-inn{
+    background-image: url(./Image/bg-5.png);
+    background-position: top;
+    border-radius: 10px;
+}
+#p-inn{
+    background-image: url(./Image/bg-6.png);
+    background-position: top;
+    border-radius: 10px;
+}
+#g-inn{
+    background-image: url(./Image/bg-7.png);
+    background-position: top;
+    border-radius: 10px;
+}
+#l-inn{
+    background-image: url(./Image/bg-8.png);
+    background-position: top;
+    border-radius: 10px;
+}
+#b-inn{
+    background-image: url(./Image/bg-9.png);
+    background-position: top;
+    border-radius: 10px;
+}

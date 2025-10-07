@@ -12,7 +12,7 @@ function Dashboard() {
                     <button><i class="fa-solid fa-gauge"></i> Dashboard</button>
                     <button className="ml-2"><i class="fa-solid fa-chart-pie"></i> Chart</button>
                 </div>
-                <div className="grid gap-4 sm:grid-cols-12 px-7 pl-15 py-5 pb-15">
+                <div className="sm:grid gap-4 sm:grid-cols-12 px-7 pl-15 py-5 pb-15">
                     {catagory && catagory.map((item) => {
                         return (
                             <>

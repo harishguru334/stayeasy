@@ -5,10 +5,10 @@ import Sidebar from "./Sidebaar";
 function HomePage() {
     return (
         <>
-        <Navbaar />
        <div className="flex justify-left">
          <Sidebar />
        <div className="w-full">
+        <Navbaar />
           <Dashboard />
        </div>
        </div>

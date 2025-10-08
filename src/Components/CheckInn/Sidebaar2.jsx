@@ -20,7 +20,7 @@ function Sidebaar2() {
   ];
 
   return (
-    <div className="w-64 bg-[#0f172a] text-white h-[148vh] flex flex-col hidden sm:block ">
+    <div className="w-64 bg-[#0f172a] text-white h-auto flex flex-col hidden sm:block ">
       {/* Header */}
       <div className="p-4 border-b border-gray-700">
         <h2 className="text-sm text-gray-400">GENERAL MANAGER</h2>

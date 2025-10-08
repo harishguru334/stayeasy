@@ -78,7 +78,7 @@ export default function CheckIn(){
   return (
     <div className="flex">
       <Sidebaar2 />
-      <div className="flex-1 min-h-screen">
+      <div className=" ms:flex-1 min-h-screen">
         <Navbaar onPrint={onPrint} />
         <div className="p-6">
           <h2 className="text-xl font-semibold mb-4">Check In</h2>
@@ -96,7 +96,7 @@ export default function CheckIn(){
           <div className="bg-white p-6 rounded-b shadow">
             {/* Quick + Details combined UI like screenshot */}
             { (activeTab === 'Quick' || activeTab === 'Details') && (
-              <form onSubmit={saveCheckIn} className="grid grid-cols-3 gap-6">
+              <form onSubmit={saveCheckIn} className="ms:grid sm:grid-cols-3 gap-6">
                 {/* Column 1 */}
                 <div className="space-y-4">
                   <div>
@@ -164,7 +164,7 @@ export default function CheckIn(){
                     <input value={form.email} onChange={e=>updateField('email', e.target.value)} className="w-full border px-3 py-2 rounded" />
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="ms:grid ms:grid-cols-3 gap-2">
                     <div>
                       <label className="text-sm font-medium">No. of Room</label>
                       <input type="number" value={form.noOfRoom} onChange={e=>updateField('noOfRoom', e.target.value)} className="w-full border px-3 py-2 rounded"/>

@@ -20,7 +20,7 @@ function Sidebaar2() {
   ];
 
   return (
-    <div className="w-64 bg-[#0f172a] text-white h-[148vh] flex flex-col">
+    <div className="w-64 bg-[#0f172a] text-white h-[148vh] flex flex-col hidden sm:block ">
       {/* Header */}
       <div className="p-4 border-b border-gray-700">
         <h2 className="text-sm text-gray-400">GENERAL MANAGER</h2>
@@ -51,9 +51,8 @@ function SidebarItem({ label, to, active }) {
   return (
     <Link
       to={to}
-      className={`block px-3 py-2 rounded-md cursor-pointer transition ${
-        active ? "bg-blue-700 font-semibold" : "hover:bg-blue-600"
-      }`}
+      className={`block px-3 py-2 rounded-md cursor-pointer transition ${active ? "bg-blue-700 font-semibold" : "hover:bg-blue-600"
+        }`}
     >
       {label}
     </Link>

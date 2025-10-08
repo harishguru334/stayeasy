@@ -14,7 +14,7 @@ export default function Room_view() {
 
                 <h2 className="text-2xl font-bold mb-4 text-center ">Room View </h2>
 
-                <div className="grid grid-cols-3 gap-6">
+                <div className="md:grid md:grid-cols-3 gap-6 ">
                     {Object.entries(RoomsData).map(([floor, Rooms]) => (
                         <div key={floor} className="bg-white p-3 rounded-lg shadow-md">
                             <h3 className="font-semibold mb-3">
@@ -22,7 +22,7 @@ export default function Room_view() {
                                 <span className="text-gray-500 text-sm">({Rooms.length} Rooms)</span>
                             </h3>
 
-                            <div className="grid grid-cols-2 p-2 gap-6 justify-items-center ">
+                            <div className="md:grid md:grid-cols-2 p-2 gap-6 justify-items-center  ">
                                 {Rooms.map((room) => (
                                     <RoomCard
                                         key={room.number}

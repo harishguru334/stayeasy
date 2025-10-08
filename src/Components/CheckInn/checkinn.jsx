@@ -78,16 +78,16 @@ export default function CheckIn(){
   return (
     <div className="flex">
       <Sidebaar2 />
-      <div className=" ms:flex-1 min-h-screen">
+      <div className=" sm:flex-1 min-w-[100%]">
         <Navbaar onPrint={onPrint} />
-        <div className="p-6">
+        <div className="p-6 w-[100%]">
           <h2 className="text-xl font-semibold mb-4">Check In</h2>
 
           {/* Tabs */}
-          <div className="flex gap-2 mb-4">
+          <div className="flex w-[100%] gap-2 sm:mb-4">
             {tabs.map(t => (
               <button key={t} onClick={() => setActiveTab(t)}
-                className={`px-4 py-2 rounded-t ${activeTab===t ? 'bg-white border-t border-l border-r' : 'bg-gray-200'}`}>
+                className={`text-s sm:px-4 sm:py-2 rounded-t ${activeTab===t ? 'bg-white border-t border-l border-r' : 'bg-gray-200'}`}>
                 {t}
               </button>
             ))}
@@ -96,7 +96,7 @@ export default function CheckIn(){
           <div className="bg-white p-6 rounded-b shadow">
             {/* Quick + Details combined UI like screenshot */}
             { (activeTab === 'Quick' || activeTab === 'Details') && (
-              <form onSubmit={saveCheckIn} className="ms:grid sm:grid-cols-3 gap-6">
+              <form onSubmit={saveCheckIn} className="sm:grid sm:grid-cols-3 gap-6">
                 {/* Column 1 */}
                 <div className="space-y-4">
                   <div>
@@ -140,10 +140,10 @@ export default function CheckIn(){
                     </select>
                   </div>
 
-                  <div>
-                    <label className="text-sm font-medium">WiFi Detail</label>
-                    <input placeholder="WiFi User Name" value={form.wifiUser} onChange={e=>updateField('wifiUser', e.target.value)} className="w-full border px-3 py-2 rounded mb-2" />
-                    <input placeholder="WiFi Password" value={form.wifiPass} onChange={e=>updateField('wifiPass', e.target.value)} className="w-full border px-3 py-2 rounded" />
+                  <div className=''>
+                    <label className="text-sm font-medium pr-15 pl-0 w-full text-left">WiFi Detail</label>
+                    <input placeholder="WiFi User Name" value={form.wifiUser} onChange={e=>updateField('wifiUser', e.target.value)} className=" border sm:pl-4 sm:pr-28 py-2 rounded mt-[10px] mb-4 " />
+                    <input placeholder="WiFi Password" value={form.wifiPass} onChange={e=>updateField('wifiPass', e.target.value)} className=" border sm:pl-4 sm:pr-28 py-2 rounded" />
                   </div>
                 </div>
 
@@ -164,7 +164,7 @@ export default function CheckIn(){
                     <input value={form.email} onChange={e=>updateField('email', e.target.value)} className="w-full border px-3 py-2 rounded" />
                   </div>
 
-                  <div className="ms:grid ms:grid-cols-3 gap-2">
+                  <div className="sm:grid sm:grid-cols-3 gap-2">
                     <div>
                       <label className="text-sm font-medium">No. of Room</label>
                       <input type="number" value={form.noOfRoom} onChange={e=>updateField('noOfRoom', e.target.value)} className="w-full border px-3 py-2 rounded"/>
@@ -220,7 +220,7 @@ export default function CheckIn(){
                     </label>
                     <label className="flex items-center gap-2">
                       <input type="checkbox" checked={isGST} onChange={e=>setIsGST(e.target.checked)}/>
-                      GST 18% Applicable
+                      GST 12% Applicable
                     </label>
                   </div>
 
@@ -310,7 +310,7 @@ export default function CheckIn(){
                 <div className="mb-3">
                   <label className="flex items-center gap-2">
                     <input type="checkbox" checked={isGST} onChange={e=>setIsGST(e.target.checked)} />
-                    <span>Apply GST 18%</span>
+                    <span>Apply GST 12%</span>
                   </label>
                 </div>
                 {isGST && (

@@ -10,14 +10,14 @@ export default function Room_view() {
     return (
         <div className="flex">
             <Sidebaar2 />
-            <div className="p-6 w-300 bg-slate-200 min-h-screen">
+            <div className="p-6 w-300 bg-slate-200 h-screen overflow-scroll">
 
                 <h2 className="text-2xl font-bold mb-4 text-center ">Room View </h2>
 
                 <div className="md:grid md:grid-cols-3 gap-6 ">
                     {Object.entries(RoomsData).map(([floor, Rooms]) => (
                         <div key={floor} className="bg-white p-3 rounded-lg shadow-md">
-                            <h3 className="font-semibold mb-3">
+                            <h3 className="font-semibold mb-3"> 
                                 {floor}{" "}
                                 <span className="text-gray-500 text-sm">({Rooms.length} Rooms)</span>
                             </h3>

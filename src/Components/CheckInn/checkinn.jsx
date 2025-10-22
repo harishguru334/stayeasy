@@ -76,9 +76,9 @@ export default function CheckIn() {
   }
 
   return (
-    <div className="flex">
+    <div className="flex h-[100vh]">
       <Sidebaar2 />
-      <div className="sm:flex-1 min-w-[100%] md:min-w-[80%] overflow-hidden">
+      <div className="sm:flex-1 min-w-[100%] md:min-w-[80%] overflow-scroll">
         <Navbaar onPrint={onPrint} />
         <div className=" w-[100%] p-6 sm:w-250">
           <h2 className="text-xl font-semibold mb-4">Check In</h2>
@@ -297,7 +297,7 @@ export default function CheckIn() {
                   <div className="flex justify-between"><div>Discount</div><div>- ₹ {summary.discount.toFixed(2)}</div></div>
                   <hr className="my-2" />
                   <div className="flex justify-between"><div>Subtotal</div><div>₹ {summary.subtotal.toFixed(2)}</div></div>
-                  <div className="flex justify-between"><div>GST ({(summary.gstRate * 100).w - fulltoFixed(0)}%)</div><div>₹ {summary.gstAmount.toFixed(2)}</div></div>
+                  <div className="flex justify-between"><div>GST ({(summary.gstRate * 100).toFixed(0)}%)</div><div>₹ {summary.gstAmount.toFixed(2)}</div></div>
                   <hr className="my-2" />
                   <div className="flex justify-between font-bold"><div>Total</div><div>₹ {summary.total.toFixed(2)}</div></div>
                 </div>

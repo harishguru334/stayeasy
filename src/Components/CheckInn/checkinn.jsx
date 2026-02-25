@@ -2,8 +2,38 @@ import React, { useState, useMemo } from 'react';
 import Sidebaar2 from './Sidebaar2';
 import Navbaar from '../Homepage/Navbaar';
 import PhotoUploader from './ImageUpload';
+import { useNavigate } from 'react-router-dom';
 
 export default function CheckIn() {
+
+  const navigate = useNavigate()
+
+   async function saveCheckIn(e) {
+    e?.preventDefault();
+    if (!form.guestName) return alert('Guest Name required');
+    if (isGST && !gstNumber) return alert('Please enter GST number');
+
+    const formData = new FormData();
+    formData.append('form', JSON.stringify(form));
+    formData.append('posting', JSON.stringify(posting));
+    formData.append('isGST', isGST);
+    formData.append('gstNumber', gstNumber);
+
+    if (guestPhotos.length > 0) formData.append('guestPhotos', guestPhotos[0]);
+    extraPersons.forEach(file => formData.append('extraPersons', file));
+
+    try {
+      const response = await axios.post('/api/checkin', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      alert('Check-In saved successfully!');
+      console.log(response.data);
+      // Redirect to room view
+      navigate('/Room'); // Change to your room view route if different
+    } catch (error) {
+      alert('Error: ' + error.response?.data?.error || error.message);
+    }
+  }
   // tabs
   const tabs = ['Quick', 'Details', 'Photo', 'Posting', 'GST', 'Reservation'];
   const [activeTab, setActiveTab] = useState('Quick');
@@ -297,7 +327,7 @@ export default function CheckIn() {
                   <div className="flex justify-between"><div>Discount</div><div>- ₹ {summary.discount.toFixed(2)}</div></div>
                   <hr className="my-2" />
                   <div className="flex justify-between"><div>Subtotal</div><div>₹ {summary.subtotal.toFixed(2)}</div></div>
-                  <div className="flex justify-between"><div>GST ({(summary.gstRate * 100).w - fulltoFixed(0)}%)</div><div>₹ {summary.gstAmount.toFixed(2)}</div></div>
+                  <div className="flex justify-between"><div>GST ({(summary.gstRate * 100).toFixed(0)}%)</div><div>₹ {summary.gstAmount.toFixed(2)}</div></div>
                   <hr className="my-2" />
                   <div className="flex justify-between font-bold"><div>Total</div><div>₹ {summary.total.toFixed(2)}</div></div>
                 </div>

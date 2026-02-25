@@ -1,60 +1,112 @@
-import { useState } from "react";
-import RoomsData from "../../Room";
-import RoomCard from "./RoomCard";
-import CheckInForm from "./checkinn";
-import Sidebaar2 from "./Sidebaar2";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function Room_view() {
-    const [selectedRoom, setSelectedRoom] = useState(null);
+const RoomView = () => {
+  const [rooms, setRooms] = useState([]);
+  const navigate = useNavigate();
 
-    return (
-        <div className="flex">
-            <Sidebaar2 />
-            <div className="p-6 w-300 bg-slate-200 min-h-screen">
+  const hotelId = localStorage.getItem("Hotel ID");
 
-                <h2 className="text-2xl font-bold mb-4 text-center ">Room View </h2>
+  useEffect(() => {
+    if (hotelId) {
+      fetchRooms();
+    }
+  }, [hotelId]);
 
-                <div className="md:grid md:grid-cols-3 gap-6 ">
-                    {Object.entries(RoomsData).map(([floor, Rooms]) => (
-                        <div key={floor} className="bg-white p-3 rounded-lg shadow-md">
-                            <h3 className="font-semibold mb-3">
-                                {floor}{" "}
-                                <span className="text-gray-500 text-sm">({Rooms.length} Rooms)</span>
-                            </h3>
+  const fetchRooms = async () => {
+    try {
+      const res = await axios.get(
+        `/api/Room/Rooms/${hotelId}`
+      );
+      setRooms(res.data.rooms);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-                            <div className="md:grid md:grid-cols-2 p-2 gap-6 justify-items-center  ">
-                                {Rooms.map((room) => (
-                                    <RoomCard
-                                        key={room.number}
-                                        room={room}
-                                        onClick={(room) => setSelectedRoom(room)} // click handler
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+  const groupedRooms = rooms.reduce((acc, room) => {
+    if (!acc[room.floor]) {
+      acc[room.floor] = [];
+    }
+    acc[room.floor].push(room);
+    return acc;
+  }, {});
 
-                {/* 👇 Yeh hamesha map ke bahar hoga */}
-                {selectedRoom && (
-                    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                        <div className="bg-white w-[100%] max-h-[100vh] overflow-y-auto">
-                            {selectedRoom.status === "available" ? (
-                                <CheckInForm
-                                    room={selectedRoom}
-                                    onClose={() => setSelectedRoom(null)}
-                                />
-                            ) : (
-                                <CheckOutForm
-                                    room={selectedRoom}
-                                    onClose={() => setSelectedRoom(null)}
-                                />
-                            )}
-                        </div>
-                    </div>
-                )}
+  const getColor = (status) => {
+    switch (status) {
+      case "ready":
+        return "#16c60c";
+      case "occupied":
+        return "#2979ff";
+      case "blocked":
+        return "#000000";
+      case "dirty":
+        return "#ff9800";
+      default:
+        return "#ccc";
+    }
+  };
 
-            </div>
+  return (
+    <div style={{ padding: "20px" }}>
+      <h2>Room View</h2>
+
+      <button
+        onClick={() => navigate("/admin/add-room")}
+        style={{
+          padding: "10px 15px",
+          background: "#2979ff",
+          color: "white",
+          border: "none",
+          borderRadius: "5px",
+          marginBottom: "20px",
+          cursor: "pointer"
+        }}
+      >
+        Add Room
+      </button>
+
+      {Object.keys(groupedRooms).map((floor) => (
+        <div key={floor} style={{ marginBottom: "30px" }}>
+          <h3>Floor {floor}</h3>
+
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
+            {groupedRooms[floor].map((room) => (
+              <div
+                key={room._id}
+                onClick={() => {
+                  if (room.status === "ready") {
+                    navigate(`/checkin/${room._id}`);
+                  }
+                }}
+                style={{
+                  width: "140px",
+                  padding: "15px",
+                  borderRadius: "10px",
+                  textAlign: "center",
+                  color: "white",
+                  background: getColor(room.status),
+                  cursor:
+                    room.status === "ready"
+                      ? "pointer"
+                      : "not-allowed",
+                  opacity:
+                    room.status === "ready"
+                      ? 1
+                      : 0.6
+                }}
+              >
+                <h4>{room.roomNo}</h4>
+                <p>{room.type}</p>
+                {/* <p>₹{room.price}/night</p> */}
+              </div>
+            ))}
+          </div>
         </div>
-    );
-}
+      ))}
+    </div>
+  );
+};
+
+export default RoomView;

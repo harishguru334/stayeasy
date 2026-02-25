@@ -8,24 +8,32 @@ import GardenTable from './Components/Garden/GardenTable'
 import Partyinn from './Components/Partymenu/PartyInn'
 import Laundry from './Components/Laundryinn/Laundryinn'
 import CheckIn from './Components/CheckInn/checkinn'
-import Login from './Components/Homepage/Loginn'
-import Room_view from './Components/CheckInn/Room'
+import Navbaarlogin from './Components/LogInPage/Navbbaar'
+import Login from './Components/LogInPage/LogIn'
+import Signup from './Components/LogInPage/SignUp'
+import AddRoom from './Components/CheckInn/AddRoom'
+import RoomView from './Components/CheckInn/Room'
+
+
 
 
 function App() {
     return (<>
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Homepage />} />
-                <Route path='/LogIn' element={<Login />} />
+                <Route path='/' element={<Login />} />
+                // <Route path='/Signup' element={<Signup />} />
+                <Route path='/dashboard' element={<Homepage />} />
+                <Route path="/admin/add-room" element={<AddRoom />} />
                 <Route path='/Dineinn' element={<Table />} />
-                <Route path='/Room' element={<Room_view />} />
+                <Route path='/Room' element={<RoomView />} />
                 <Route path='/Foodinn' element={<Food />} />
                 <Route path='/Baarinn' element={<Baar />} />
                 <Route path='/Gardeninn' element={<GardenTable />} />
                 <Route path='/Partyinn' element={<Partyinn />} />
                 <Route path='/Laundryinn' element={<Laundry />} />
-                <Route path='/Checkinfrom' element={<CheckIn />} />
+                <Route path='/checkin/:roomId' element={<CheckIn />} />
+                <Route Path='/Navbaar' element={<Navbaarlogin />} />
             </Routes>
         </BrowserRouter>
 

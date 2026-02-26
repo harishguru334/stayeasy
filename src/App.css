@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 
+
 .input-box {
   @apply w-full p-3 border-2 border-gray-300 rounded-lg
   focus:outline-none focus:border-indigo-600

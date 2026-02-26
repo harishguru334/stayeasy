@@ -106,9 +106,9 @@ export default function CheckIn() {
   }
 
   return (
-    <div className="flex">
+    <div className="flex h-[100vh]">
       <Sidebaar2 />
-      <div className="sm:flex-1 min-w-[100%] md:min-w-[80%] overflow-hidden">
+      <div className="sm:flex-1 min-w-[100%] md:min-w-[80%] overflow-scroll">
         <Navbaar onPrint={onPrint} />
         <div className=" w-[100%] p-6 sm:w-250">
           <h2 className="text-xl font-semibold mb-4">Check In</h2>

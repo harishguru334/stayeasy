@@ -13,7 +13,7 @@ const catagory=[
         Id:1,
         NAme:"Check Inn",
         Image:Image1,
-        route : "/Room"
+        route : "/Romm_veiw"
     },
     {
         Id:2,

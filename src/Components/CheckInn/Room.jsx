@@ -6,7 +6,14 @@ const RoomView = () => {
   const [rooms, setRooms] = useState([]);
   const navigate = useNavigate();
 
+<<<<<<< HEAD
   const hotelId = localStorage.getItem("Hotel ID");
+=======
+    return (
+        <div className="flex">
+            <Sidebaar2 />
+            <div className="p-6 w-300 bg-slate-200 h-screen overflow-scroll">
+>>>>>>> 453a6542a7ebcda37d3425e3cbdc243205028bba
 
   useEffect(() => {
     if (hotelId) {
@@ -14,6 +21,7 @@ const RoomView = () => {
     }
   }, [hotelId]);
 
+<<<<<<< HEAD
   const fetchRooms = async () => {
     try {
       const res = await axios.get(
@@ -24,6 +32,15 @@ const RoomView = () => {
       console.log(err);
     }
   };
+=======
+                <div className="md:grid md:grid-cols-3 gap-6 ">
+                    {Object.entries(RoomsData).map(([floor, Rooms]) => (
+                        <div key={floor} className="bg-white p-3 rounded-lg shadow-md">
+                            <h3 className="font-semibold mb-3"> 
+                                {floor}{" "}
+                                <span className="text-gray-500 text-sm">({Rooms.length} Rooms)</span>
+                            </h3>
+>>>>>>> 453a6542a7ebcda37d3425e3cbdc243205028bba
 
   const groupedRooms = rooms.reduce((acc, room) => {
     if (!acc[room.floor]) {

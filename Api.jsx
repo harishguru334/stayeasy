@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/api", // 👈 ye Vite proxy use karega
+  baseURL: "https://stayeasy-black.vercel.app/api/user/login", // 👈 ye Vite proxy use karega
   headers: {
     "Content-Type": "application/json"
   }

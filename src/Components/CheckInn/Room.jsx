@@ -1,46 +1,28 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Sidebaar2 from "./Sidebaar2";
 
-const RoomView = () => {
+const Romm_veiw = () => {
+
   const [rooms, setRooms] = useState([]);
   const navigate = useNavigate();
-
-<<<<<<< HEAD
   const hotelId = localStorage.getItem("Hotel ID");
-=======
-    return (
-        <div className="flex">
-            <Sidebaar2 />
-            <div className="p-6 w-300 bg-slate-200 h-screen overflow-scroll">
->>>>>>> 453a6542a7ebcda37d3425e3cbdc243205028bba
+
+  const fetchRooms = async () => {
+    try {
+      const res = await axios.get(`/api/Room/Rooms/${hotelId}`);
+      setRooms(res.data.rooms);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     if (hotelId) {
       fetchRooms();
     }
   }, [hotelId]);
-
-<<<<<<< HEAD
-  const fetchRooms = async () => {
-    try {
-      const res = await axios.get(
-        `/api/Room/Rooms/${hotelId}`
-      );
-      setRooms(res.data.rooms);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-=======
-                <div className="md:grid md:grid-cols-3 gap-6 ">
-                    {Object.entries(RoomsData).map(([floor, Rooms]) => (
-                        <div key={floor} className="bg-white p-3 rounded-lg shadow-md">
-                            <h3 className="font-semibold mb-3"> 
-                                {floor}{" "}
-                                <span className="text-gray-500 text-sm">({Rooms.length} Rooms)</span>
-                            </h3>
->>>>>>> 453a6542a7ebcda37d3425e3cbdc243205028bba
 
   const groupedRooms = rooms.reduce((acc, room) => {
     if (!acc[room.floor]) {
@@ -66,64 +48,48 @@ const RoomView = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Room View</h2>
+    <div className="flex">
+      <Sidebaar2 />
 
-      <button
-        onClick={() => navigate("/admin/add-room")}
-        style={{
-          padding: "10px 15px",
-          background: "#2979ff",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          marginBottom: "20px",
-          cursor: "pointer"
-        }}
-      >
-        Add Room
-      </button>
+      <div className="p-6 w-300 bg-slate-200 h-screen overflow-scroll">
 
-      {Object.keys(groupedRooms).map((floor) => (
-        <div key={floor} style={{ marginBottom: "30px" }}>
-          <h3>Floor {floor}</h3>
+        <button
+          onClick={() => navigate("/admin/add-room")}
+          className="bg-blue-600 text-white px-4 py-2 rounded mb-5"
+        >
+          Add Room
+        </button>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
-            {groupedRooms[floor].map((room) => (
-              <div
-                key={room._id}
-                onClick={() => {
-                  if (room.status === "ready") {
-                    navigate(`/checkin/${room._id}`);
-                  }
-                }}
-                style={{
-                  width: "140px",
-                  padding: "15px",
-                  borderRadius: "10px",
-                  textAlign: "center",
-                  color: "white",
-                  background: getColor(room.status),
-                  cursor:
-                    room.status === "ready"
-                      ? "pointer"
-                      : "not-allowed",
-                  opacity:
-                    room.status === "ready"
-                      ? 1
-                      : 0.6
-                }}
-              >
-                <h4>{room.roomNo}</h4>
-                <p>{room.type}</p>
-                {/* <p>₹{room.price}/night</p> */}
-              </div>
-            ))}
+        {Object.keys(groupedRooms).map((floor) => (
+          <div key={floor} className="mb-8">
+            <h3 className="font-bold mb-4">Floor {floor}</h3>
+
+            <div className="flex flex-wrap gap-4">
+              {groupedRooms[floor].map((room) => (
+                <div
+                  key={room._id}
+                  onClick={() => {
+                    if (room.status === "ready") {
+                      navigate(`/checkin/${room._id}`);
+                    }
+                  }}
+                  className="w-36 p-4 rounded text-center text-white cursor-pointer"
+                  style={{
+                    background: getColor(room.status),
+                    opacity: room.status === "ready" ? 1 : 0.6
+                  }}
+                >
+                  <h4>{room.roomNo}</h4>
+                  <p>{room.type}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+
+      </div>
     </div>
   );
 };
 
-export default RoomView;
+export default Romm_veiw;

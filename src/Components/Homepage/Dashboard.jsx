@@ -3,54 +3,63 @@ import catagory from "../../Catagory";
 
 function Dashboard() {
 
-    const data = [{}]
-
     return (
         <>
-<<<<<<< HEAD
-            <div className="bg-gray-200 m-3 my-7 pr-5 sm:pr-14 ">
-=======
-            <div className="bg-gray-200 h-[87vh] overflow-scroll m-3 mt-7 pr-5 sm:pr-14 ">
->>>>>>> 453a6542a7ebcda37d3425e3cbdc243205028bba
-                <div className="flex justify-between" >
-                    <div className="flex justify-left text-xs p-2  bg-white-1000" >
-                        <button onClick={""} className="w-15" ><i className="fa-solid fa-gauge"></i> Dashboard</button>
-                        <button onClick={""} className="sm:w-20 ml-2"><i className="fa-solid fa-chart-pie"></i> <br /> Chart</button>
-<<<<<<< HEAD
-                        <button onClick={""} className="sm:w-20  ml-2"><i className="fa-solid fa-chart-pie"></i> <br />Food Chart</button>
-                        <button onClick={""} className="sm:w-20  ml-2"><i className="fa-solid fa-chart-pie"></i> <br /> Sale Chart</button>
-=======
-                        <button onClick={""} className="sm:w-20 mt-4 ml-2"><i className="fa-solid fa-chart-pie"></i> <br />Food Chart</button>
-                        <button onClick={""} className="sm:w-20 mt-4 ml-2"><i className="fa-solid fa-chart-pie"></i> <br /> Sale Chart</button>
->>>>>>> 453a6542a7ebcda37d3425e3cbdc243205028bba
+            <div className="bg-gray-200 h-[87vh] overflow-scroll m-3 mt-7 pr-5 sm:pr-14">
+
+                <div className="flex justify-between">
+                    <div className="flex justify-left text-xs p-2">
+
+                        <button className="w-15">
+                            <i className="fa-solid fa-gauge"></i> Dashboard
+                        </button>
+
+                        <button className="sm:w-20 ml-2">
+                            <i className="fa-solid fa-chart-pie"></i> <br /> Chart
+                        </button>
+
+                        <button className="sm:w-20 mt-4 ml-2">
+                            <i className="fa-solid fa-chart-pie"></i> <br /> Food Chart
+                        </button>
+
+                        <button className="sm:w-20 mt-4 ml-2">
+                            <i className="fa-solid fa-chart-pie"></i> <br /> Sale Chart
+                        </button>
 
                     </div>
-                    <h3 className=" pt-4.5 p-1" >balance:-......</h3>
+
+                    <h3 className="pt-4 p-1">
+                        balance:-......
+                    </h3>
                 </div>
 
-<<<<<<< HEAD
-                <div className=" sm:grid gap-4 sm:grid-cols-12 pl-5 pr-1 pb-15">
+                <div className="sm:grid gap-4 sm:grid-cols-12 pl-5 pr-1 pb-0">
+
                     {catagory && catagory.map((item) => {
                         return (
-                            <>
-                                <Link to={`${item.route}`} className="w-[100%]  sm:col-span-3 my-5 h-30   text-xl text-center  m-5 "> <div className="h-[140px] overflow-hidden " style={{ backgroundImage: `url(${item.Image})`, color: "red" }}>
-=======
-                <div className="  sm:grid gap-4 sm:grid-cols-12 pl-5 pr-1 pb-0">
-                    {catagory && catagory.map((item) => {
-                        return (
-                            <>
-                                <Link to={`${item.route}`} className="w-[100%]  sm:col-span-3 my-5 h-30   text-xl text-center  mt-5 "> <div className="h-[140px] overflow-hidden " style={{ backgroundImage: `url(${item.Image})`, color: "red" }}>
->>>>>>> 453a6542a7ebcda37d3425e3cbdc243205028bba
-                                    <img src={item.Image} alt="" width={"100%"} />
-                                </div></Link>
-                            </>
-                        )
+                            <Link
+                                key={item.route}
+                                to={item.route}
+                                className="w-full sm:col-span-3 my-5 h-30 text-xl text-center mt-5"
+                            >
+                                <div
+                                    className="h-[140px] overflow-hidden"
+                                    style={{
+                                        backgroundImage: `url(${item.Image})`,
+                                        color: "red"
+                                    }}
+                                >
+                                    <img src={item.Image} alt="" width="100%" />
+                                </div>
+                            </Link>
+                        );
                     })}
 
                 </div>
-            </div>
 
+            </div>
         </>
-    )
+    );
 }
+
 export default Dashboard;

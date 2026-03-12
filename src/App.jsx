@@ -26,11 +26,11 @@ function App() {
                 <Route path='/dashboard' element={<Homepage />} />
                 <Route path="/admin/add-room" element={<AddRoom />} />
                 <Route path='/Dineinn' element={<Table />} />
-<<<<<<< HEAD
-                <Route path='/Room' element={<RoomView />} />
-=======
-                <Route path='/Romm_veiw' element={<Room_view />} />
->>>>>>> 453a6542a7ebcda37d3425e3cbdc243205028bba
+
+               
+
+                <Route path='/Romm_veiw' element={<RoomView />} />
+
                 <Route path='/Foodinn' element={<Food />} />
                 <Route path='/Baarinn' element={<Baar />} />
                 <Route path='/Gardeninn' element={<GardenTable />} />

@@ -22,7 +22,7 @@ export default function Login() {
     }
 
     try {
-      const res = await api.post("/user/login", form);
+      const res = await api.post("/Api/user/login", form);
 
       const user = res.data.user;
 

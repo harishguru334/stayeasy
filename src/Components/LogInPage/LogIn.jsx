@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../../../Api";
+import Api from "../../../Api";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -22,8 +22,7 @@ export default function Login() {
     }
 
     try {
-      const res = await api.post("/Api/user/login", form);
-
+      const res = await Api.post("/api/user/login", form);
       const user = res.data.user;
 
       localStorage.setItem("user", JSON.stringify(user));

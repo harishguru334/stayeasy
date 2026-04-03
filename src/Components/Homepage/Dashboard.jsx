@@ -7,30 +7,36 @@ function Dashboard() {
         <>
             <div className="bg-gray-200 h-[87vh] overflow-scroll m-3 mt-7 pr-5 sm:pr-14">
 
-                <div className="flex justify-between">
-                    <div className="flex justify-left text-xs p-2">
+                <div className="flex justify-between items-center">
 
-                        <button className="w-15">
-                            <i className="fa-solid fa-gauge"></i> Dashboard
+                    <div className="flex items-center gap-6 text-sm p-2">
+
+                        <button className="flex items-center gap-2">
+                            <i className="fa-solid fa-gauge"></i>
+                            <span>Dashboard</span>
                         </button>
 
-                        <button className="sm:w-20 ml-2">
-                            <i className="fa-solid fa-chart-pie"></i> <br /> Chart
+                        <button className="flex items-center gap-2">
+                            <i className="fa-solid fa-chart-pie"></i>
+                            <span>Chart</span>
                         </button>
 
-                        <button className="sm:w-20 mt-4 ml-2">
-                            <i className="fa-solid fa-chart-pie"></i> <br /> Food Chart
+                        <button className="flex items-center gap-2">
+                            <i className="fa-solid fa-chart-pie"></i>
+                            <span>Food Chart</span>
                         </button>
 
-                        <button className="sm:w-20 mt-4 ml-2">
-                            <i className="fa-solid fa-chart-pie"></i> <br /> Sale Chart
+                        <button className="flex items-center gap-2">
+                            <i className="fa-solid fa-chart-pie"></i>
+                            <span>Sale Chart</span>
                         </button>
 
                     </div>
 
-                    <h3 className="pt-4 p-1">
+                    <h3 className="text-sm">
                         balance:-......
                     </h3>
+
                 </div>
 
                 <div className="sm:grid gap-4 sm:grid-cols-12 pl-5 pr-1 pb-0">

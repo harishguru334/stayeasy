@@ -1,58 +1,71 @@
 import { Link } from "react-router-dom";
 import catagory from "../../Catagory";
 
+const topButtons = [
+    { icon: "fa-gauge", label: "Dashboard" },
+    { icon: "fa-chart-pie", label: "Chart" },
+    { icon: "fa-utensils", label: "Food Chart" },
+    { icon: "fa-chart-line", label: "Sale Chart" },
+];
+
 function Dashboard() {
     return (
-        <>
-            <div className="bg-gray-200 min-h-[87vh] m-3 mt-7 pr-5 sm:pr-14 overflow-y-auto">
-                
-                {/* Top Buttons */}
-                <div className="flex justify-between items-center mb-4">
-                    <div className="flex items-center gap-3 p-2 text-xs">
-                        <button className="flex flex-col items-center bg-white shadow px-3 py-2 rounded w-16 hover:bg-blue-100">
-                            <i className="fa-solid fa-gauge text-lg mb-1"></i>
-                            <span>Dashboard</span>
-                        </button>
-                        <button className="flex flex-col items-center bg-white shadow px-3 py-2 rounded w-16 hover:bg-blue-100">
-                            <i className="fa-solid fa-chart-pie text-lg mb-1"></i>
-                            <span>Chart</span>
-                        </button>
-                        <button className="flex flex-col items-center bg-white shadow px-3 py-2 rounded w-16 hover:bg-blue-100">
-                            <i className="fa-solid fa-utensils text-lg mb-1"></i>
-                            <span>Food Chart</span>
-                        </button>
-                        <button className="flex flex-col items-center bg-white shadow px-3 py-2 rounded w-16 hover:bg-blue-100">
-                            <i className="fa-solid fa-chart-line text-lg mb-1"></i>
-                            <span>Sale Chart</span>
-                        </button>
-                    </div>
-                    <h3 className="font-semibold text-sm">
-                        Balance: ......
-                    </h3>
-                </div>
+        <div style={{ background: "#e5e7eb", minHeight: "87vh", margin: "12px", marginTop: "28px", overflowY: "auto", padding: "12px" }}>
 
-                {/* Category Cards */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pl-2 pr-1 pb-4">
-                    {catagory && catagory.map((item) => {
-                        return (
-                            <Link
-                                key={item.route}
-                                to={item.route}
-                                className="block rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
-                            >
-                                <div className="w-full h-[160px]">
-                                    <img
-                                        src={item.Image}
-                                        alt={item.name || "category"}
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            </Link>
-                        );
-                    })}
+            {/* Top Bar */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                <div style={{ display: "flex", gap: "8px" }}>
+                    {topButtons.map((btn) => (
+                        <button
+                            key={btn.label}
+                            style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                background: "#fff",
+                                border: "1px solid #ddd",
+                                borderRadius: "8px",
+                                padding: "6px 4px",
+                                width: "60px",
+                                minWidth: "60px",
+                                fontSize: "11px",
+                                cursor: "pointer",
+                                lineHeight: "1.3",
+                                textAlign: "center"
+                            }}
+                        >
+                            <i className={`fa-solid ${btn.icon}`} style={{ fontSize: "16px", marginBottom: "4px" }}></i>
+                            <span>{btn.label}</span>
+                        </button>
+                    ))}
                 </div>
+                <span style={{ fontWeight: "600", fontSize: "13px", whiteSpace: "nowrap", paddingLeft: "8px" }}>
+                    Balance: ......
+                </span>
             </div>
-        </>
+
+            {/* Category Grid */}
+            <div style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))",
+                gap: "12px",
+            }}>
+                {catagory && catagory.map((item) => (
+                    <Link
+                        key={item.route}
+                        to={item.route}
+                        style={{ display: "block", borderRadius: "8px", overflow: "hidden", boxShadow: "0 2px 6px rgba(0,0,0,0.2)", textDecoration: "none" }}
+                    >
+                        <img
+                            src={item.Image}
+                            alt={item.name || "category"}
+                            style={{ width: "100%", height: "110px", objectFit: "cover", display: "block" }}
+                        />
+                    </Link>
+                ))}
+            </div>
+        </div>
     );
 }
 

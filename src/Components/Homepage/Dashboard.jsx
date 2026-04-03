@@ -39,23 +39,24 @@ function Dashboard() {
 
                 </div>
 
-                <div className="sm:grid gap-4 sm:grid-cols-12 pl-5 pr-1 pb-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
 
                     {catagory && catagory.map((item) => {
                         return (
                             <Link
                                 key={item.route}
                                 to={item.route}
-                                className="w-full sm:col-span-3 my-5 h-30 text-xl text-center mt-5"
+                                className="w-full"
                             >
                                 <div
-                                    className="h-[140px] overflow-hidden"
+                                    className="aspect-square flex items-center justify-center text-white text-lg font-semibold rounded"
                                     style={{
                                         backgroundImage: `url(${item.Image})`,
-                                        color: "red"
+                                        backgroundSize: "cover",
+                                        backgroundPosition: "center"
                                     }}
                                 >
-                                    <img src={item.Image} alt="" width="100%" />
+                                    {item.name}
                                 </div>
                             </Link>
                         );

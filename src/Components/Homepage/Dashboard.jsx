@@ -3,75 +3,51 @@ import catagory from "../../Catagory";
 
 function Dashboard() {
     return (
-        <div className="bg-gray-200 min-h-screen overflow-x-hidden px-4 py-4">
-
-            {/* TOP BAR */}
-            <div className="flex flex-wrap justify-between items-center gap-3">
-
-                {/* LEFT MENU */}
-                <div className="flex flex-wrap items-center gap-4 text-sm">
-
-                    <button className="flex items-center gap-2">
-                        <i className="fa-solid fa-gauge"></i>
-                        <span>Dashboard</span>
-                    </button>
-
-                    <button className="flex items-center gap-2">
-                        <i className="fa-solid fa-chart-pie"></i>
-                        <span>Chart</span>
-                    </button>
-
-                    <button className="flex items-center gap-2">
-                        <i className="fa-solid fa-chart-pie"></i>
-                        <span>Food Chart</span>
-                    </button>
-
-                    <button className="flex items-center gap-2">
-                        <i className="fa-solid fa-chart-pie"></i>
-                        <span>Sale Chart</span>
-                    </button>
-
+        <>
+            <div className="bg-gray-200 h-[87vh] overflow-scroll m-3 mt-7 pr-5 sm:pr-14">
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center gap-2 text-xs p-2">
+                        <button className="flex flex-col items-center w-16 p-1">
+                            <i className="fa-solid fa-gauge mb-1"></i>
+                            <span>Dashboard</span>
+                        </button>
+                        <button className="flex flex-col items-center w-16 p-1">
+                            <i className="fa-solid fa-chart-pie mb-1"></i>
+                            <span>Chart</span>
+                        </button>
+                        <button className="flex flex-col items-center w-16 p-1">
+                            <i className="fa-solid fa-chart-pie mb-1"></i>
+                            <span>Food Chart</span>
+                        </button>
+                        <button className="flex flex-col items-center w-16 p-1">
+                            <i className="fa-solid fa-chart-pie mb-1"></i>
+                            <span>Sale Chart</span>
+                        </button>
+                    </div>
+                    <h3 className="pt-4 p-1">
+                        balance:-......
+                    </h3>
                 </div>
-
-                {/* RIGHT SIDE */}
-                <h3 className="text-sm font-medium">
-                    balance:-......
-                </h3>
-
+                <div className="sm:grid gap-4 sm:grid-cols-12 pl-5 pr-1 pb-0">
+                    {catagory && catagory.map((item) => {
+                        return (
+                            <Link
+                                key={item.route}
+                                to={item.route}
+                                className="w-full sm:col-span-3 my-5 h-30 text-xl text-center mt-5"
+                            >
+                                <div
+                                    className="h-[140px] overflow-hidden"
+                                    style={{ color: "red" }}
+                                >
+                                    <img src={item.Image} alt="" width="100%" />
+                                </div>
+                            </Link>
+                        );
+                    })}
+                </div>
             </div>
-
-            {/* GRID SECTION */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
-
-                {catagory && catagory.map((item) => {
-                    return (
-                        <Link
-                            key={item.route}
-                            to={item.route}
-                            className="w-full"
-                        >
-                            <div className="relative aspect-square rounded overflow-hidden bg-gray-100">
-
-                                <img
-                                    src={item.Image}
-                                    alt=""
-                                    className="w-full h-full object-contain"
-                                />
-
-                                <div className="absolute inset-0 bg-black/30"></div>
-
-                                <span className="absolute inset-0 flex items-center justify-center text-white text-lg font-semibold">
-                                    {item.name}
-                                </span>
-
-                            </div>
-                        </Link>
-                    );
-                })}
-
-            </div>
-
-        </div>
+        </>
     );
 }
 

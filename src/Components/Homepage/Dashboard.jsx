@@ -50,19 +50,16 @@ function Dashboard() {
                             to={item.route}
                             className="w-full"
                         >
-                            <div className="relative aspect-square rounded overflow-hidden">
+                            <div className="relative aspect-square rounded overflow-hidden bg-gray-100">
 
-                                {/* IMAGE */}
                                 <img
                                     src={item.Image}
                                     alt=""
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-contain"
                                 />
 
-                                {/* DARK OVERLAY */}
-                                <div className="absolute inset-0 bg-black/40"></div>
+                                <div className="absolute inset-0 bg-black/30"></div>
 
-                                {/* TEXT */}
                                 <span className="absolute inset-0 flex items-center justify-center text-white text-lg font-semibold">
                                     {item.name}
                                 </span>
